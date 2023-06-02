@@ -62,9 +62,16 @@ function generatePass() {
 
 var password = generatePass();
 
-console.log(password);
+var outputParagraph = document.querySelector('.password-output');
 
+outputParagraph.style.color = 'red';
+outputParagraph.innerText = password;
 
+var div = document.createElement('div');
+
+div.insertAdjacentHTML('beforeend', '<h3>Inserted H3 header</h3>');
+
+document.body.append(div);
 
 
 // var num = 10;
