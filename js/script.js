@@ -1,89 +1,43 @@
-// var fruits = ['apple', 'grape', 'kiwi'];
-
-
-var users = [
+var body = document.body;
+var btnElObject = document.querySelector('#start');
+var mainSectionEl = document.querySelector('.main-content section');
+var questionData = [
   {
-    name: 'JD',
-    age: 43
+    question: 'What does the acronym D.O.M. stand for?',
+    choices: ['Dog Only Members', 'Document Object Model', 'Dancing On Mercury', 'Document On Memory'],
+    answer: 'Document Object Model'
   },
   {
-    name: 'Jane',
-    age: 35,
-    hobbies: ['tennis', 'hiking']
-  },
-  {
-    name: 'Bob',
-    healthcare: {
-      locations: {
-        pharmacy: '555 Cool St.',
-        emergency: '555 Help Dr.'
-      },
-      medications: {
-        amount: 50,
-        types: [
-          {
-            bloodPressure: 'Amlodapine',
-            pillSize: '10mg'
-          },
-          {
-            painRelief: 'Tylenol',
-            pillSize: '500mg'
-          }
-        ]
-      }
-    },
-    age: 99
+    question: 'Should we refer to Javascript as Java?',
+    choices: ['Maybe', 'Yes', 'No', 'Only on Saturdays'],
+    answer: 'No'
   }
 ];
 
-// var jane = users.find(function (userObj) {
-//   if (userObj.name === 'Jane') return true;
-// });
+for (var index = 0; index < questionData.length; index++) {
+  var questionObj = questionData[index];
+  var questionDiv = document.createElement('div');
+  var h2 = document.createElement('h2');
+  var p = document.createElement('p');
 
-// console.log(jane);
+  h2.innerText = questionObj.question;
+  p.innerText = questionObj.answer;
 
-// console.log(users[2].healthcare.medications.types[1].pillSize);
+  questionDiv.append(h2);
+  questionDiv.append(p);
 
+  // questionDiv.innerHTML = `
+  // <h2>${questionObj.question}</h2>
+  // <p>Answer: ${questionObj.answer}</p>
+  // `;
 
-// var str = 'some string';
-
-// str = str.slice(3);
-
-// console.log(str);
-// console.log(str.length);
-
-
-
-var jd = {
-  name: 'JD',
-  age: 43,
-  hobbies: ['pickleball', 'fishing'],
-  haveBirthday: function () {
-    this.age++;
-  },
-  printSomething: function (txt) {
-    console.log(txt);
-  },
-  printAge: function () {
-    console.log(this.age);
-  },
-  printHobbiesByIndex: function (index) {
-    console.log(this.hobbies[index]);
-  }
+  mainSectionEl.append(questionDiv);
 }
 
-// jd.printAge();
 
-var un = {
-  something: ['apple', 'orange']
-};
-
-
-// const fruits = ['apple', 'orange', 'grape', { name: 'JD' }, ['one', 'two']];
-
-// var result = fruits.includes(['one', 'two']);
-
-// var 
+btnElObject.addEventListener('click', function () {
+  body.classList.add('explosion');
+});
 
 
 
@@ -95,87 +49,37 @@ var un = {
 
 
 
-// console.log(un.blah);
-
-// jd.printHobbiesByIndex(0);
-
-// joe.printSomething('some different text');
-// jd.printAge();
-
-// jd.haveBirthday();
-
-// jd.printAge();
 
 
 
-// function someFunc() {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getProduct(a, b) {
+//   return a * b;
 // }
 
+// var product = getProduct(5, 5);
 
 
+// function doSomething(whatAmI, blah) {
+//   whatAmI('arg passed to callback');
+//   console.log(blah);
+// }
 
-
-
-
-
-
-
-
-
-
-var oldStudentData = ['Matthew', 'FSF'];
-var studentData = {
-  name: 'Matthew',
-  course: 'FSF',
-  university: 'Rutgers',
-  location: 'Jersey',
-  age: 26,
-  someFunc: function () {
-    console.log('wait, what?!!');
-  },
-  printInfo: function () {
-    console.log('Name: ', this.name);
-  }
-};
-
-
-// studentData.printInfo();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var studentName = students[0];
-
-// var studentCourse = students[1];
-
-// var studentName = studentData.name;
-// var studentCourse = studentData.course;
-
-// console.log(studentName, studentCourse);
-
-// console.log(studentData.location);
-
-// var fruits = ['orange', 'apple', 'grape'];
-// var str = 'some string';
-
-// console.log(str.length);
-
-// var strData = {
-//   value: 'some string',
-//   length: 11
-// };
-
+// doSomething(function (youGotThis) {
+//   console.log(youGotThis);
+// }, 10);
