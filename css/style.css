@@ -14,3 +14,7 @@ html, body {
 body.explosion {
   animation: colorExplosion 5s infinite alternate;
 }
+
+.green {
+  background-color: aquamarine;
+}
