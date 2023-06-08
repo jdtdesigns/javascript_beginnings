@@ -1,36 +1,45 @@
-// Target all the li's in the ul and add an event
-// listener to each li that console logs the innerText
-// of the li
-// var liArray = document.querySelectorAll('ul li');
+var formEl = document.querySelector('#user-form');
+var emailInput = document.querySelector('#email-input');
+var passwordInput = document.querySelector('#pass-input');
+var emailOutput = document.querySelector('#user-email');
+var passOutput = document.querySelector('#user-pass');
 
+// Retrieve the user data from localStorage
+function getUserData() {
+  var data = {};
 
+  data.email = localStorage.getItem('email-address');
+  data.password = localStorage.getItem('password-value');
 
-// // Add an click event listener to each li in the array
-// // above
-// for (var i = 0; i < liArray.length; i++) {
-//   liArray[i].addEventListener('click', clicked);
-// }
-
-// Target the ul and add an event listener that console
-// logs the innerText of the li that was clicked
-var ul = document.querySelector('ul');
-var userAnswer = 'Document Object Model';
-
-function clicked(eventObj) {
-  var el = eventObj.target;
-
-  if (el.tagName === 'LI') {
-    if (el.innerText === userAnswer) {
-      console.log('You are correct!');
-      el.classList.add('green');
-      alert('You are correct!');
-    } else {
-      console.log('Wrong...');
-    }
-  }
+  return data;
 }
 
-ul.addEventListener('click', clicked);
+
+// Outputs the user info to the window
+function showUserData() {
+  var userData = getUserData();
+
+  emailOutput.innerText = 'Email: ' + userData.email;
+  // emailOutput.innerText = `Email: ${userData.email}`;
+  passOutput.innerText = `Password: ${userData.password}`;
+}
+
+
+function getUserInput(eventObj) {
+  eventObj.preventDefault();
+
+  var email = emailInput.value;
+  var pass = passwordInput.value;
+
+  localStorage.setItem('email-address', email);
+  localStorage.setItem('password-value', pass);
+
+  showUserData();
+}
+
+// Initial process or app start tasks
+formEl.addEventListener('submit', getUserInput);
+showUserData();
 
 
 
@@ -41,11 +50,15 @@ ul.addEventListener('click', clicked);
 
 
 
-// var ul = document.querySelector('ul');
-var addLiBtn = document.querySelector('button');
 
-addLiBtn.addEventListener('click', function () {
-  var li = document.createElement('li');
-  li.innerText = 'New Item';
-  ul.append(li);
-});
+
+
+// function getUserInput(eventObj) {
+//   // eventObj.preventDefault();
+//   if (eventObj.keyCode === 13) {
+//     console.log('enter pressed');
+//   }
+// }
+
+// input.addEventListener('keydown', getUserInput);
+

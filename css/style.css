@@ -2,19 +2,26 @@ html, body {
   height: 100%;
 }
 
-@keyframes colorExplosion {
-  from {
-    background-color: orange;
-  }
-  to {
-    background-color: blue;
-  }
+body {
+  padding: 10%;
 }
 
-body.explosion {
-  animation: colorExplosion 5s infinite alternate;
+form {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
 }
 
-.green {
-  background-color: aquamarine;
+form input, form button {
+  padding: 6px 10px;
+  margin-bottom: 8px;
+}
+
+form button {
+  border: none;
+  padding: 7px 10px;
+  background-color: lightseagreen;
+  color: #fff;
+  cursor: pointer;
 }
